@@ -10,4 +10,4 @@ or
 import word2vid from hw4
 and use word@vid(keyword)
 #result
-![Image text]（https://raw.githubusercontent.com/BUEC500C1/twitter-summarizer-rest-service-chijunyou/master/result.png)
+![Image text](https://raw.githubusercontent.com/BUEC500C1/twitter-summarizer-rest-service-chijunyou/master/result.png)
