@@ -9,5 +9,5 @@ or
 
 import word2vid from hw4
 and use word@vid(keyword)
-
-![Image text](https://raw.githubusercontent.com/hongmaju/light7Local/master/img/productShow/20170518152848.png)
+#result
+![Image text]（https://raw.githubusercontent.com/BUEC500C1/twitter-summarizer-rest-service-chijunyou/master/result.png)
