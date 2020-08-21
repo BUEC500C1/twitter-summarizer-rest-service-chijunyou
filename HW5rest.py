@@ -6,12 +6,13 @@ from hw4 import word2vid
 
 app = Flask(__name__)
 api = flask_restful.Api(app)
-base_url = '127.0.0.1:5000'
+mykeyword = dict()
+base_url = 'http://18.219.96.248:8080/'
 
 @app.route('/get_status/<string:keyword>',methods=['GET'])
 def get_status(keyword):
-    if keyword in app.mykeyword:
-        if app.mykeyword[keyword] == 1:
+    if keyword in mykeyword:
+        if mykeyword[keyword] == 1:
             status = 'Ready'
         else:
             status = 'Still working on it'
@@ -37,9 +38,9 @@ def get_video(keyword):
 def make_video(keyword):
     status_link = ''
     video_link = ''
-    app.mykeyword[keyword] = 1
+    mykeyword[keyword] = 1
     rtn = word2vid(keyword)
-    app.mykeyword[keyword] = 2
+    mykeyword[keyword] = 2
     status_link = base_url + '/get_status/' + keyword
     video_link = base_url + '/get_video/' + keyword
     return jsonify(keyword=keyword,
@@ -52,9 +53,9 @@ def post():
     status_link = ''
     video_link = ''
     keyword = request.form['keyword']
-    app.mykeyword[keyword] = 1
+    mykeyword[keyword] = 1
     rtn = word2vid(keyword)
-    app.mykeyword[keyword] = 2
+    mykeyword[keyword] = 2
     status_link = base_url + '/get_status/' + keyword
     video_link = base_url + '/get_video/' + keyword
     
@@ -66,6 +67,5 @@ def post():
 
 
 if __name__ == "__main__":
-    app.mykeyword = dict()
-    app.run(debug=True)
-    #app.run(debug=True,host='0.0.0.0',port=8080)
+    #app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0',port=8080)
